@@ -1,0 +1,82 @@
+<section class="h-100 gradient-custom">
+  <div class="container py-5">
+    <div class="row">
+      
+
+      <div class="col-md-10">
+
+
+        <div class="card border-0">
+          <div class="card-header py-3 border">
+            <h5 class="mb-0">Orders</h5>
+          </div>
+          {{#each products}}
+
+          <div class="card-body">
+
+            <!-- Single item -->
+            <div class="row border-bottom mt-0">
+              {{#each this.product}}
+              <div class="col-lg-3 col-md-12 mb-4 mb-lg-4 pt-0">
+                <!-- Image -->
+              
+                <div class="bg-image hover-overlay hover-zoom ripple rounded" data-mdb-ripple-color="light">
+                  <img src="/product-images/{{this.imagepath}}.jpg" class="w-100" alt="image" />
+              
+                  <a href="#!">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.2)"></div>
+                  </a>
+                </div>
+              
+                <!-- Image -->
+              </div>
+              {{/each}}
+              {{#each this.product}}
+              <div class="col-lg-5 col-md-6 mb-4 mb-lg-0 mt-5">
+                <!-- Data -->
+                <h4><strong>{{this.name}}</strong></h4>
+              {{/each}}
+
+              
+                <p><strong> Payment Mode: {{this.address.payment}}</strong></p>
+           
+             
+                <p><strong>Order Date:</strong> {{this.date}}</p>
+                
+                <!-- Data -->
+              </div>
+             
+
+              <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <!-- Quantity -->
+
+                <div class="form-outline">
+                   <label class="form-label" for="form1">Quantity</label>
+                  <input id="form1" name="quantity" value="{{this.quantity}}" 
+                    class="form-control" readonly/>
+                 
+                </div>
+                <div style="margin-top:2rem;">
+                    <p><strong >Status: </strong>{{this.status}}</p>
+                </div>
+               
+              </div>
+              <!-- Quantity -->
+
+            </div>
+
+
+          </div>
+          <!-- Single item -->
+
+          {{/each}}
+
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+</section>

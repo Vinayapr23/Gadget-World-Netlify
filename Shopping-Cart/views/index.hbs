@@ -1,0 +1,63 @@
+<header class="hero-section" style=" background-image: url('background.jpg');">
+  <div class="content col-md-12">
+    <img src="" class="logo" alt="">
+    <p class="sub-heading">One Stop Solution For All Electronics</p>
+    <div class="explore">
+          <a type="button" href="#two" class="btn btn-secondary" id="new">Explore Gadgets</a>
+    </div>
+  </div>
+</header>
+
+<section id="two" style="display:none">
+  <div  class="banner-section">
+          <h5 class="product-category pt-3" class="banner">Best Sellers</h5>
+  </div>
+  
+</section>
+
+<section id="three" style="display:none">
+  <div class="container mt-5">
+    <div class="row">
+
+         {{#each products}}
+       
+        <div class="product-card col-md-4 mt-5 align">
+          <div class="product-image">
+            <img src="../../product-images/{{this.imagepath}}.jpg" class="product-thumb" alt="">
+             <button class="card-btn" class="btn btn-secondary" onclick='addToCart("{{this._id}}")' id="{{this._id}}">Add to Cart</button>
+          </div>
+          <div class="product-info">
+            <h4 class="product-brand">{{this.name}}</h4>
+            <p class="product-short-des" style="font-weight:900px;">{{this.description}}</p>
+            <span class="price">{{this.price}}$</span>
+            
+          </div>
+        </div>
+          {{/each}}
+   
+    
+    </div>
+  </div>
+</section>
+
+
+  <script>
+
+    
+      $('#new').on('click', function () {
+      
+          $('#two').show('slow');
+          $('#three').show('slow');
+          $("#two").css("display", "block");
+           $("#three").css("display", "block");
+            
+
+
+
+        });
+ 
+
+
+  </script>
+           
+

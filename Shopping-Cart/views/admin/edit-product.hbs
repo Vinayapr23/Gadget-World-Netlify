@@ -1,0 +1,54 @@
+<section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6">
+                <div>
+                    <h2 class="text-centre">Edit Product</h2>
+                </div>
+                <form action="/admin/edit-product/{{data._id}}" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input name="name"type="text" class="form-control" value="{{data.name}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Category</label>
+                        <input name="category" type="text" class="form-control" value="{{data.category}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Price</label>
+                        <input name="price"type="text" class="form-control" value="{{data.price}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Description</label>
+                        <input name="description"type="text" class="form-control" value="{{data.description}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Image</label>
+                        <img src="/product-images/{{data.imagepath}}.jpg " style="width:100;height :75px" id="imgView" class="pb-3">
+                        <div>
+                                <input required name="image" type="file" class="form-control" onchange="viewImage(event)">
+                        </div>
+                       
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script>
+
+ function viewImage(event){
+
+   document.getElementById('imgView').src=URL.createObjectURL(event.target.files[0])
+
+
+ }
+
+
+
+</script>

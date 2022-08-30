@@ -1,0 +1,92 @@
+<section class="h-100 gradient-custom">
+    <div class="container py-5">
+        <div class="row">
+
+            <form class="col-md-12" id="checkout-form" method="post">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card mb-4 ">
+                            <div class="card-header py-3">
+                                <h5 class="mb-0">Address</h5>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Delivery Address</label>
+                                    <input name="address" type="text" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Pin Code</label>
+                                    <input name="code" type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">District</label>
+                                    <input name="dist" type="text" class="form-control">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1">State</label>
+                                        <input name="state" type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-4 ">
+                                <div class="card-header py-3">
+                                    <h5 class="mb-0">Payment Type</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input checked="checked" type="radio" name="payment" id="rd1" value="Online" />
+                                        <label for="rd1">Online Payment</label><br />
+                                        <input type="radio" name="payment" id="rd2" value="COD" />
+                                        <label for="rd2">Cash on Delivery</label><br />
+                                    </div>
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-secondary btn-lg btn-block mb-2">
+                                            Place Order
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+            </form>
+
+        </div>
+    </div>
+
+
+    </div>
+    </div>
+</section>
+
+
+<script>
+
+    $("#checkout-form").submit((e) => {
+        e.preventDefault();
+        $.ajax({
+
+            url: '/checkout',
+            method: 'post',
+            data: $('#checkout-form').serialize(),
+            success: (response) => {
+
+                if(response.status)
+                {
+                    location.href='/confirmation'
+                }
+            }
+        })
+
+
+
+    })
+
+</script>
